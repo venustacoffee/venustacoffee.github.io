@@ -1,0 +1,304 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+
+<!-- Mirrored from venusta.softp.kr/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Oct 2020 23:16:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+
+	<title>베누스타</title>
+    
+	<meta name="naver-site-verification" content=""/>
+	<!--사이트 설명-->
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<!--공유되는 정보에 대한 설명 등(오픈그래프)-->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:url" content="">
+	<!--선호 URL-->
+	<link rel="canonical" href="#">
+    
+
+	<!--css-->
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+	<link rel="stylesheet" type="text/css" href="css/include.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/slick.css" />
+	<link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
+	<link rel="stylesheet" type="text/css" href="css/NotoSansKR.css">
+	<!--js-->
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/quick.js"></script>
+	<script type="text/javascript" src="js/slick.min.js"></script>
+	<script type="text/javascript" >
+		$(document).ready(function(){
+			$('.main_v').slick({
+                autoplay:true,
+                autoplaySpeed: 3000,
+                arrows:true,
+                speed:2000,
+                dots:true
+			});
+            $(".main_v").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+                $(".main_v").css("background-color",$("#slick"+nextSlide).data("bg_color"));
+            });
+
+		});
+	</script>
+</head>
+<body>
+    <style>
+.layer_contnet{
+    min-width:230px;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -24px;
+}
+.check_close{
+    clear:both;
+    height:24px;
+    background-color:#000;
+    font-family:'Dotum','돋움';
+    font-size:12px;
+    color:#fff;
+}
+</style>
+<script>
+function setCookie( name, value, expiredays )
+{
+	var todayDate = new Date();
+	todayDate.setDate( todayDate.getDate() + expiredays );
+	document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+function getCookie(cname)
+{
+	var name = cname + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0; i<ca.length; i++)
+	{
+		var c = $.trim(ca[i]);
+		if (c.indexOf(name)==0){
+			return c.substring(name.length,c.length);
+		}
+	}
+	return "";
+}
+$(document).ready(function(){
+	$(".close_layer").click(function(){
+		$(this).parent().parent().parent().css("display","none");
+	});
+
+	$(".close_today").click(function(){
+		if($(this).is(":checked") == true){
+			setCookie("layer"+$(this).val(), "N", 1);
+			$(this).parent().parent().parent().css("display","none");
+		}
+	});
+
+});
+
+</script>
+
+    <div id="wrap">
+        <!--Header-->
+        <div id="header_wrap">
+            <header id="header">	
+	<div id="headerin" class="cf">
+		<div class="logo f_l">
+			<a href="index.html"><img src="images/logo.png"></a>
+		</div>
+    	<nav class="gnb f_r">
+        	<ul>
+            	<li class="d1">
+                	<a href="#" class="m">회사소개</a>
+                    <div class="sub" style="left:14px">
+                    	<ul>
+                        	<li><a href="sub/company/intro.html">회사소개</a></li>
+                            <li><a href="sub/company/location.html">오시는 길</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+                <li class="d1">
+                	<a href="sub/product/venusta110c.html?bbs_id=venusta" class="m">제품</a>
+                    <div class="sub" style="left:-44px">
+                    	<ul>
+                        	<li><a href="sub/product/venusta110c.html?bbs_id=venusta">베누스타</a></li>
+                            <li><a href="sub/product/teatime1d73.html?bbs_id=ttime">티타임</a></li>
+                            <li><a href="sub/product/icemakerf4b2.html?bbs_id=icemaker">아이스메이커</a></li>
+                            <li><a href="sub/product/coffeebean9332.html?bbs_id=coffee">원두커피</a></li>
+                            <li><a href="sub/product/productfeatures.html">제품특장점</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+                <li class="d1">
+                	<a href="#" class="m">고객지원</a>
+                    <div class="sub" style="left:-23px;">
+                    	<ul>
+                        	<li><a href="sub/cs/videomanual6a1f.html?bbs_id=video">영상메뉴얼</a></li>
+                            <li><a href="sub/cs/userguidea34b.html?bbs_id=menual">제품사용설명서</a></li>
+                            <li><a href="sub/cs/faqc321.html?bbs_id=faq">문제해결</a></li>
+                            <li><a href="sub/cs/serviceapplication.html">서비스신청</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+                <li class="d1">
+                	<a href="#" class="m">커뮤니티</a>
+                    <div class="sub" style="left:18px;">
+                    	<ul>
+                        	<li><a href="sub/community/noticef00e.html?bbs_id=notice">공지사항</a></li>
+                            <li><a href="sub/community/qna6555.html?bbs_id=qna">일반문의</a></li>
+                            <li><a href="sub/community/information3190.html?bbs_id=coffeeinfo">커피정보</a></li>
+                            <li><a href="sub/community/review03b0.html?bbs_id=review">고객리뷰</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+            </ul>
+        </nav>
+    </div>
+    <div class="gnbBg"></div>
+</header>
+
+<script>
+	// .gnb에 마우스를 올렸을 때
+	// => .gnb의 높이값이 310으로 움직임.(기본높이값40+서브높이값270)
+	//    .gnbBg가 슬라이드다운되면서 보여지기
+	// .gnb에 마우스를 내렸을 때
+	// => .gnb의 높이값이 40으로 움직임.
+	//    .gnbBg가 슬라이드업되면서 사라지기
+	$(".gnb").mouseover(function(){
+		$(".gnb").stop().animate({height:310},10);
+		$(".gnbBg").stop().slideDown(10);
+	}).mouseout(function(){
+		$(".gnb").stop().animate({height:40},10);
+		$(".gnbBg").stop().slideUp(10);
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <!--//Header -->
+
+        <!--Content-->
+        <div id="content_wrap">
+			<!-- main slide-->
+			
+			<div class="slick-prev"></div>
+			<div class="main_v" style="background-color:transparent">
+
+			
+				<div data-bg_color="transparent" id="slick0"><img src="upload/slider/mainslider1(0).jpg"></div>
+			
+				<div data-bg_color="transparent" id="slick1"><img src="upload/slider/mainslider2.jpg"></div>
+			
+            </div>
+            <div class="slick-next"></div>
+            
+			<!-- main slide-->
+			<div class="main_bn_product">
+				<div class="main_bn_tt">
+					<span class="main_tt_bar"></span>
+					<span class="main_tt">PRODUCT</span>
+					<span class="main_tt_tx">깊고 풍부한 커피맛의 이유, 베누스타만의 특별한 상품을 만나보세요.</span>
+				</div>
+				<div class="main_pd_list">
+					<ul>
+						<li>
+							<div class="main_pd_img">
+								<a href="sub/product/venusta_detail86c6.html?bbs_id=venusta&amp;srcstr=&amp;srctype=&amp;gotopage=1&amp;idx=12"><img src="images/Master-RF.png"></a>
+							</div>
+							<div class="main_pd_tt"><a href="sub/product/venusta_detail86c6.html?bbs_id=venusta&amp;srcstr=&amp;srctype=&amp;gotopage=1&amp;idx=12">Master-RF</a></div>
+							<div class="main_pd_tx"><a href="sub/product/venusta_detail86c6.html?bbs_id=venusta&amp;srcstr=&amp;srctype=&amp;gotopage=1&amp;idx=12">premium espresso coffee</a></div>
+						</li>
+						<li>
+							<div class="main_pd_img">
+								<a href="sub/product/venusta_detail34dc.html?bbs_id=venusta&amp;srcstr=&amp;srctype=&amp;gotopage=1&amp;idx=7"><img src="images/VRF.jpg" width="78%"></a>
+							</div>
+							<div class="main_pd_tt"><a href="sub/product/venusta_detail34dc.html?bbs_id=venusta&amp;srcstr=&amp;srctype=&amp;gotopage=1&amp;idx=7">VRF</a></div>
+							<div class="main_pd_tx"><a href="sub/product/venusta_detail34dc.html?bbs_id=venusta&amp;srcstr=&amp;srctype=&amp;gotopage=1&amp;idx=7">premium espresso coffee</a></div>
+						</li>
+						<li>
+							<div class="main_pd_img" style="margin-right:0;"><a href="sub/product/coffeebean9332.html?bbs_id=coffee">
+								<img src="images/PERATH-Beans.png"></a>
+							</div>
+							<div class="main_pd_tt"><a href="sub/product/coffeebean9332.html?bbs_id=coffee">Perath Beans</a></div>
+							<div class="main_pd_tx"><a href="sub/product/coffeebean9332.html?bbs_id=coffee">premium coffee</a></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="main_cum">
+				<div class=" cum_img">
+					<img src="images/cummunity_img.png">
+				</div>
+				<div class=" cmu_cont">
+					<div class="cum main_bn_tt" style="margin-left:61px;">
+						<span class="cum main_tt_bar"></span>
+						<span class="cum main_tt">CUMMUNITY</span>
+					</div>
+					
+						<div class="cum_notice">
+							<span class="more_btn"><a href="sub/community/information3190.html?bbs_id=coffeeinfo">+more</a></span>
+							<div class="cum_notice_tt"><a href="sub/community/information3190.html?bbs_id=coffeeinfo">[커피정보] 하나의 '문화'로 자리한 "커피" 수입량 사상 최대치 기록!</a></div>
+							<div class="cum_notice_tx"><a href="sub/community/information3190.html?bbs_id=coffeeinfo">아침에 쌀쌀한 바람을 맞으며출근해서 차가운 몸을 녹이기 위해한잔의 커피, (호로록 호로록)배부르게 점심을 먹고식곤증이 오기전에 졸린눈 비비며또 한잔의 커피, (호로록 호로록)오후 3~4시가 되면 피곤이 몰려와나른하고 졸려서다시 한잔의 커피, (호로록 호로록)따뜻하게 저녁 식사를 마치고도란도란 이야기를 나누면서 혹은 tv보며또 한잔의 커피, (호로록 호로록)   이렇게 하루에 많은 커피를 마시는 현대인들..예전에는 '수정과'나 '식혜' 또는 '녹차'등을 즐겨마셨지만,이제는 많은 사람들이 '커피'를 즐겨마시며 지낸답니다.^^ 오른쪽을 둘러봐도 왼쪽을 둘러봐도거리에는 여러가지 가지각색의 간판들로 꾸며진카페들이 줄지어 서있고,집에는 찻장 옆에 항상 놓여있는 커피.믹스커피는 물론, 이제는 원두커피도 가정집에서흔히 볼 수 있게 되었습니다.아래 내용은 기사의 일부 내용입니다 :) . 2014년, 올해 한국의 커피 수입량은 사상 최대치를 기록할 것으로보여지고 있다는 기사가 떴습니다.지난 21일 관세청의 수출입무역 통계에 따르면 올해 1~9월 생두와 원두 등..커피 수입중량은 99,372t(톤)으로 지난해 같은 기간보다약 18.7%가량 증가하였습니다. 금액으로는 3억 8200만 달러가 수입되지난해 같은 기간보다 약 21.2% 증가했습니다. 몇년사이 부쩍 커피전문점이 확산되면서이에 따른 커피 수입량이 늘었기 때문으로 분석되어지고 있습니다. 지난 9월, '2013년 국민건강영양조사' 결과에 따르면19세 이상 성인이 하루 1.8잔의 커피를 마시는 것으로 나타났습니다. . 그마만큼, 커피는 우리 삶에서 떨어지지 못하는하나의 '문화'가 되어버린 셈이죠.^^'커피'하면 콜롬비아, 브라질이 가장먼저 떠오르지만,사실 국내에서도 재배하고있다는 사실!알고계셨나요?이제는 국내 기술을 확산시켜국내 재배로 눈길을 돌려보는건 어떨까요?외국 만큼이나 커피 메뉴가 다양하고 발전된 한국.머신 뿐 아니라 원두도 이제는 made in korea ^-^    [ 관련기사 ] MK뉴스 경제부 커피 수입량 사상 최대치 기록…지난해보다 21.2% 증가http://news.mk.co.kr/newsRead.php?year=2014&amp;no=1340588 </a></div>		
+						</div>
+						
+				</div>
+			</div>					
+		</div>
+        <!--//Content-->
+
+        <!--Quick_banner-->
+        <div id="quick_banner">
+            <!--include virtual="/quick.asp"//-->
+		</div>
+        <!--//Quick_banner-->
+
+        <!--Footer-->
+        <div id="footer_wrap">
+            <div class="footer">
+
+	<div class="logo">
+		<a href="index.html">
+		    
+		</a>
+	</div>
+	<p class="privacy_policy">
+		<a href="member/privacy_policy.html">개인정보취급방침</a>
+	</p>
+	<p>베누스타커피 | 대표 : 박준영 | 080-055-2200 | 인천광역시 남동구 호구포로 50</p>
+	<p>서울(경기)/대전(충청)/광주(전라)/부산(경상)/제주도</p>
+	<p>전국 커피머신 렌탈/판매 및 원두구입 문의</p>
+	<p class="copy">Copyright© 2019 베누스타커피. All right reserved.</p>
+</div>
+        </div>
+        <!--//Footer-->
+    </div>
+</body>
+
+<!-- Mirrored from venusta.softp.kr/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Oct 2020 23:17:06 GMT -->
+</html>

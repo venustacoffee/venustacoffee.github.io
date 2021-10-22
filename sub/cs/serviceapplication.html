@@ -1,0 +1,395 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+
+<!-- Mirrored from venusta.softp.kr/sub/cs/serviceapplication.asp by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Oct 2020 23:22:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>베누스타</title>
+	<!--css-->
+	<link rel="stylesheet" type="text/css" href="../../css/default.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/include.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/sub.css">	
+	<link rel="stylesheet" type="text/css" href="../../css/NotoSansKR.css">
+	<link rel="stylesheet" type="text/css" href="../../css/jquery.toast.min.css">
+	<!--js-->
+	<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/quick.js"></script>
+	<script type="text/javascript" src="../../js/plugin/jquery-validate/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="../../js/plugin/jquery-validate/messages_ko.js"></script>
+	<script type="text/javascript" src="../../js/jquery.toast.min.js"></script>
+	<script type="text/javascript" >
+		$(document).ready(function(){
+
+			$("#inquiry_form").validate({
+				// Rules for form validation
+				rules : {
+					nm : {
+						required : true,
+						maxlength : 20
+					},
+					mail : {
+						required : true,
+						email : true,
+						maxlength : 100
+					},
+					call : {
+						maxlength : 20
+					},
+					hp : {
+						required : true,
+						maxlength : 20
+					},
+					title : {
+						required : true,
+						maxlength : 100
+					},
+					cntt : {
+						required : true
+					},
+					company_nm : {
+						maxlength : 100
+					},
+					addr : {
+						maxlength : 250
+					},
+					fax : {
+						maxlength : 20
+					},
+					web : {
+						maxlength : 200
+					}
+				},
+				// Messages for form validation
+				messages : {
+					nm : {
+						required : '성명을 입력하세요.'
+					},
+					mail : {
+						required : '이메일을 입력하세요.'
+					},
+					hp : {
+						required : '휴대전화번호를 입력하세요.'
+					},
+					title : {
+						required : '제목을 입력하세요.'
+					},
+					cntt : {
+						required : '내용을 입력하세요.'
+					}
+				},
+				// Do not change code below
+				errorPlacement : function(error, element) {
+					error.appendTo( element.parent().find(".err_text"));
+				}, submitHandler : function(form){
+					$("#btn_submit").text("처리중..").prop("disabled",true);
+					$.ajax({
+						type: "POST",
+						url: "/m/sub/cs/inquiry_form_ajax.asp",
+						data: $("#inquiry_form").serialize(),
+						dataType:"json",
+						cache : false,
+						success: function (data) {
+							if(data.state == "success") {
+								$("#inquiry_form")[0].reset();
+								$.toast({
+									text: "등록이 완료되었습니다.", // Text that is to be shown in the toast
+									heading: '서비스신청', // Optional heading to be shown on the toast
+									icon: 'success', // Type of toast icon
+									showHideTransition: 'fade', // fade, slide or plain
+									allowToastClose: true,
+									hideAfter: 5000,
+									stack: false,
+									position: 'top-center',
+									bgColor: '#205AAF',
+									textColor: 'white',
+									textAlign: 'left',  // Text alignment i.e. left, right or center
+									loader: true,  // Whether to show loader or not. True by default
+									loaderBg: '#2c7aef',  // Background color of the toast loader
+									beforeShow: function () {}, // will be triggered before the toast is shown
+									afterShown: function () {}, // will be triggered after the toat has been shown
+									beforeHide: function () {}, // will be triggered before the toast gets hidden
+									afterHidden: function () {}  // will be triggered after the toast has been hidden
+								});
+								$("#btn_submit").text("신청하기").prop("disabled",false);
+							} else {
+								alert(data.msg);
+								$("#btn_submit").text("신청하기").prop("disabled",false);
+							}
+						},
+						error: function (xhr,err){
+							alert("등록중 에러가 발생했습니다. 관리자에게 문의하세요.");
+							$("#btn_submit").text("신청하기").prop("disabled",false);
+						}
+					});
+					return false;
+				}
+			});
+
+			$("#btn_submit").click(function(){
+				if ($('input:checkbox[id="agree"]').is(':checked') == false){
+					alert('개인정보이용동의에 동의해주세요.');
+					return;
+				}
+				$("#inquiry_form").submit();
+			})
+
+		});
+	</script>
+</head>
+
+<body>
+    <div id="wrap">
+        <!--Header-->
+        <div id="header_wrap">
+            <header id="header">	
+	<div id="headerin" class="cf">
+		<div class="logo f_l">
+			<a href="../../index.html"><img src="../../images/logo.png"></a>
+		</div>
+    	<nav class="gnb f_r">
+        	<ul>
+            	<li class="d1">
+                	<a href="#" class="m">회사소개</a>
+                    <div class="sub" style="left:14px">
+                    	<ul>
+                        	<li><a href="../company/intro.html">회사소개</a></li>
+                            <li><a href="../company/location.html">오시는 길</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+                <li class="d1">
+                	<a href="../product/venusta110c.html?bbs_id=venusta" class="m">제품</a>
+                    <div class="sub" style="left:-44px">
+                    	<ul>
+                        	<li><a href="../product/venusta110c.html?bbs_id=venusta">베누스타</a></li>
+                            <li><a href="../product/teatime1d73.html?bbs_id=ttime">티타임</a></li>
+                            <li><a href="../product/icemakerf4b2.html?bbs_id=icemaker">아이스메이커</a></li>
+                            <li><a href="../product/coffeebean9332.html?bbs_id=coffee">원두커피</a></li>
+                            <li><a href="../product/productfeatures.html">제품특장점</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+                <li class="d1">
+                	<a href="#" class="m">고객지원</a>
+                    <div class="sub" style="left:-23px;">
+                    	<ul>
+                        	<li><a href="videomanual6a1f.html?bbs_id=video">영상메뉴얼</a></li>
+                            <li><a href="userguidea34b.html?bbs_id=menual">제품사용설명서</a></li>
+                            <li><a href="faqc321.html?bbs_id=faq">문제해결</a></li>
+                            <li><a href="serviceapplication.html">서비스신청</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+                <li class="d1">
+                	<a href="#" class="m">커뮤니티</a>
+                    <div class="sub" style="left:18px;">
+                    	<ul>
+                        	<li><a href="../community/noticef00e.html?bbs_id=notice">공지사항</a></li>
+                            <li><a href="../community/qna6555.html?bbs_id=qna">일반문의</a></li>
+                            <li><a href="../community/information3190.html?bbs_id=coffeeinfo">커피정보</a></li>
+                            <li><a href="../community/review03b0.html?bbs_id=review">고객리뷰</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+            </ul>
+        </nav>
+    </div>
+    <div class="gnbBg"></div>
+</header>
+
+<script>
+	// .gnb에 마우스를 올렸을 때
+	// => .gnb의 높이값이 310으로 움직임.(기본높이값40+서브높이값270)
+	//    .gnbBg가 슬라이드다운되면서 보여지기
+	// .gnb에 마우스를 내렸을 때
+	// => .gnb의 높이값이 40으로 움직임.
+	//    .gnbBg가 슬라이드업되면서 사라지기
+	$(".gnb").mouseover(function(){
+		$(".gnb").stop().animate({height:310},10);
+		$(".gnbBg").stop().slideDown(10);
+	}).mouseout(function(){
+		$(".gnb").stop().animate({height:40},10);
+		$(".gnbBg").stop().slideUp(10);
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <!--//Header -->
+		<!--sub title banner-->
+		<div class="sub_tite_bn">
+			<img src="../../images/sub/sub_title/3_3.sub_title_serviceapplication.jpg">	
+		</div>
+		<!--//sub title banner-->
+        <!--Content-->
+        <div id="content_wrap">
+			<div class="pipl">
+				<div class="pipl_tt">개인정보수집동의</div>
+				<div class="pipl_cont">
+					<div class="pipl_tx">
+						1. 수집하는 개인정보 항목<br>
+						- 담당자, 회사명, 이메일, 전화번호<br><br>
+
+						2. 수집 목적<br>
+						① 이메일, 전화번호 고지의 전달. 원활한 의사소통 경로의 확보.<br>
+						② 담당자, 회사명: 고지의 전달<br><br>
+
+						3. 개인정보 보유기간<br>
+						① 계약 또는 청약철회 등에 관한 기록 : 5년<br>
+						② 대금결제 및 재화 등의 공급에 관한 기록 : 5년<br>
+						③ 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년<br>
+					</div>
+					<div class="pipl_check">
+						<input type="checkbox" id="agree"><label for="agree">개인정보수집에 동의합니다.</label>
+					</div>
+				</div>
+			</div>
+			<div class="pipl_tt mt_65">서비스신청</div>
+			<form id="inquiry_form">
+			<table class="question_table" border="0" cellpadding="0" cellspacing="0">
+				<colgroup>
+					<col width="186px">
+					<col width="426.5px">
+					<col width="186px">
+					<col width="426.5px">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th>이름<span class="necessary_tt">*</span></th>
+						<td>
+							<input type="text" id="nm" name="nm"><span class="err_text"></span>
+						</td>
+						<th>전화번호<span class="necessary_tt">*</span></th>
+						<td>
+							<input type="text" id="call" name="call"><span class="err_text"></span>
+						</td>
+					</tr>
+					<tr>
+						<th>휴대폰번호<span class="necessary_tt">*</span></th>
+						<td>
+							<input type="text" id="hp" name="hp"><span class="err_text"></span>
+						</td>
+						<th>팩스번호</th>
+						<td>
+							<input type="text" id="fax" name="fax"><span class="err_text"></span>
+						</td>
+					</tr>
+					<tr>
+						<th>이메일<span class="necessary_tt">*</span></th>
+						<td colspan="3">
+							<input type="text" class="w_100" id="mail" name="mail"><span class="err_text"></span>
+							<!--
+							<div class="email_box">
+								<input type="text"> @
+								<input type="text">
+								<select>
+									<option>직접입력</option>
+									<option>naver.com</option>
+									<option>hanmail.net</option>
+									<option>gmail.com</option>
+								</select>
+							</div>
+							-->
+						</td>
+					</tr>
+					<tr>
+						<th>회사명<span class="necessary_tt">*</span></th>
+						<td>
+							<input type="text" id="company_nm" name="company_nm"><span class="err_text"></span>
+						</td>
+						<th>홈페이지</th>
+						<td>
+							<input type="text" id="web" name="web"><span class="err_text"></span>
+						</td>
+					</tr>
+					<tr>
+						<th>주소<span class="necessary_tt">*</span></th>
+						<td colspan="3">
+							<input type="text" class="w_100" id="addr" name="addr"><span class="err_text"></span>
+							<!--
+							<div class="address_box">
+								<div class="top_ip">
+									<input type="text" class="address_search01">
+									<input type="button" value="주소검색" class="address_btn">
+								</div>
+								<div class="bottom_ip">
+									<input type="text" placeholder="나머지 주소를 입력해주세요.">
+								</div>
+							</div>
+							-->
+						</td>
+					</tr>
+					<tr>
+						<th>제목</th>
+						<td colspan="3">							
+							<input type="text" class="w_100" id="title" name="title"><span class="err_text"></span>
+						</td>
+					</tr>
+					<tr>
+						<th>상세내용</th>
+						<td colspan="3">							
+							<textarea class="textarea" name="cntt"></textarea><span class="err_text"></span>
+						</td>
+					</tr>					
+				</tbody>
+			</table>
+			<button id="btn_submit" class="btn_write" type="button" style="margin-top:0;">신청하기</button>
+			</form>
+        </div>
+        <!--//Content-->
+
+        <!--Quick_banner-->
+        <div id="quick_banner">
+            <!--include virtual="/quick.asp"//-->
+		</div>
+        <!--//Quick_banner-->
+
+        <!--Footer-->
+        <div id="footer_wrap">
+            <div class="footer">
+
+	<div class="logo">
+		<a href="../../index.html">
+		    
+		</a>
+	</div>
+	<p class="privacy_policy">
+		<a href="../../member/privacy_policy.html">개인정보취급방침</a>
+	</p>
+	<p>베누스타커피 | 대표 : 박준영 | 080-055-2200 | 인천광역시 남동구 호구포로 50</p>
+	<p>서울(경기)/대전(충청)/광주(전라)/부산(경상)/제주도</p>
+	<p>전국 커피머신 렌탈/판매 및 원두구입 문의</p>
+	<p class="copy">Copyright© 2019 베누스타커피. All right reserved.</p>
+</div>
+        </div>
+        <!--//Footer-->
+    </div>
+</body>
+
+<!-- Mirrored from venusta.softp.kr/sub/cs/serviceapplication.asp by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Oct 2020 23:22:35 GMT -->
+</html>

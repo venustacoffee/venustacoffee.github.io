@@ -1,0 +1,43 @@
+/**notice custom**/
+
+.dt-toolbar {
+	background:#fff !important;
+}
+.dt-toolbar-footer {
+	background:#fff !important;
+}
+.btn_regist {
+	width: 10em;
+    display: block;
+    border: 1px solid #cd1418;
+    text-align: center;
+    line-height: 2.3em;
+    margin: 3em auto;
+    color: #cd1418;
+    font-weight: bold;
+    border-radius: 0;
+    background: transparent;
+}
+.pagination>.active>a,
+ .pagination>.active>a:focus,
+ .pagination>.active>a:hover,
+ .pagination>.active>span,
+ .pagination>.active>span:focus,
+ .pagination>.active>span:hover {
+	 background:#6B6B6B !important;
+ }
+
+.view_btn,.pw_chk_btn{cursor:pointer;}
+.ans_btn{
+	float:right;
+	width:80px;
+	margin-top: 10px;
+	line-height:30px;
+	background:#6B6B6B;
+	color:#fff;
+	border:0;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;	 
+}

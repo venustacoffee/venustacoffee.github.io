@@ -1,0 +1,146 @@
+/***main css ***/
+
+/**main slide**/
+
+.main_v {
+	width:100%;
+	overflow:hidden;
+}
+
+/*공통 css*/
+.main_bn_tt{
+	padding-top:127px;
+	text-align:center;
+}
+.main_bn_tt span{
+	display:block;
+}
+.main_tt_bar{
+	width:70px;
+	height:7px;
+	background:#dddddd;
+	margin:0 auto;
+}
+.main_tt {
+    font-family: 'noto-b';
+    font-size: 33px;
+    padding-top: 16px;
+}
+.main_tt_tx{
+	font-size:19px;
+	color:#a2a2a2;
+	padding-top:11px;
+}
+/*product*/
+.main_bn_product, .main_cum{
+	width:1200px;
+	margin:0 auto;
+}
+.main_pd_list li{
+	display:inline-block;
+	text-align:center;
+	margin-top:94px;
+}
+.main_pd_list li:last-child{
+	margin-right:0;
+}
+.main_pd_img {
+    border: 1px solid #bbb;
+    width: 368px;
+    height: 433px;
+    margin-right: 41px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	cursor:pointer;
+}
+.main_pd_tt {
+    padding-top: 37px;
+    font-size: 26px;
+    font-family: 'noto-b';
+    font-weight: bold;
+	cursor:pointer;
+}
+.main_pd_tx {
+    font-size: 19px;
+    font-family: 'noto-m';
+	cursor:pointer;
+}
+.main_pd_tt a, .main_pd_tx a{
+	color:black;
+}
+.main_cum {
+    padding-top: 176px;
+	position:relative;
+}
+.cmu_cont {
+    width: 51%;
+    position: absolute;
+    top: 51px;
+    right: 0;
+}
+span.cum.main_tt_bar{
+	margin:0;
+	margin-top:33px;
+}
+span.cum.main_tt {
+    text-align: left;
+}
+
+.cum_notice {
+    border: 1px solid;
+    width: 100%;
+    padding: 42px 48px;
+    box-sizing: border-box;
+    margin-top: 34px;
+}
+.cum_notice_tt {
+    font-size: 19px;
+    font-family: 'noto-b';
+}
+.cum_notice {
+    border: 1px solid #b6b6b6;
+    width: 100%;
+    padding: 53px 35px 53px 63px;
+    box-sizing: border-box;
+    margin-top: 34px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.cum_notice_tt {
+    font-size: 20px;
+    font-family: 'noto-b';
+    padding-bottom: 32px;
+	width: 77%;
+    padding: 0 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.cum_notice_tx {
+    font-size: 17px;
+    line-height: 29px;
+    padding-top: 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: box;
+    overflow: hidden;
+    vertical-align: top;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+	width:88%;
+}
+.cum_notice_tx a, .cum_notice_tt a{
+	color:black;
+}
+
+span.more_btn {
+    font-family: 'noto-r';
+    font-size: 17px;
+    float: right;
+    margin-top: -26px;   
+}
+span.more_btn a{
+	 color: #838383;
+}

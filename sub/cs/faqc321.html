@@ -1,0 +1,490 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+
+<!-- Mirrored from venusta.softp.kr/sub/cs/faq.asp?bbs_id=faq by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Oct 2020 23:22:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>베누스타</title>
+	<!--css-->
+	<link rel="stylesheet" type="text/css" href="../../css/default.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/include.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/sub.css">	
+	<link rel="stylesheet" type="text/css" href="../../css/NotoSansKR.css">
+	<!--js-->
+	<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/quick.js"></script>
+	
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/bbs.css">
+<link rel="stylesheet" type="text/css" href="../../css/bbs_custom.css">
+<script src="../../js/bootstrap/bootstrap.min.js"></script>
+<script src="../../js/plugin/mustache/mustache.min.js"></script>
+<script src="../../js/plugin/datatables/jquery.dataTables.min.js"></script>
+<script src="../../js/plugin/datatables/jquery.dataTables.min.js"></script>
+<script src="../../js/plugin/datatables/dataTables.colVis.min.js"></script>
+<script src="../../js/plugin/datatables/dataTables.tableTools.min.js"></script>
+<script src="../../js/plugin/datatables/dataTables.bootstrap.min.js"></script>
+<script src="../../js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
+<script src="../../js/plugin/jquery-validate/jquery.validate.min.js"></script>
+<script src="../../js/plugin/jquery-validate/messages_ko.js"></script>
+<script src="../../se/js/HuskyEZCreator.js" charset="utf-8"></script>
+
+<script>
+$(document).ready(function(){
+	var oEditors = [];
+    
+
+    /* BASIC ;*/
+    var responsiveHelper_dt_basic = undefined;
+
+    var breakpointDefinition = {
+        tablet : 1024,
+        phone : 480
+    };
+
+    $('#dt_basic').dataTable({
+        //"paging":   false,
+        //"ordering": false,
+        //"info":     false,
+        "searching": true,
+        "language" : {
+            "zeroRecords" : "검색결과가 없습니다.",
+            "info" : "_START_ ~ _END_ [전체 _TOTAL_ 건]",
+            "infoEmpty" : "0 ~ 0 [전체 0 건]",
+            "infoFiltered" : "",
+            "paginate" : {
+                "previous" : "<",
+                "next" : ">"
+            }
+        },
+        displayLength : 10,
+        columnDefs : [
+            {
+                targets : 0,
+                data : "fidx",
+                searchable : false,
+                orderable : false,
+                "class" : "text-align-center"
+            },
+            {
+                targets : 1,
+                data : "title",
+                searchable : false,
+                orderable : false,
+                render : function(data,type,row){
+                    return "<span class='view_btn' data-idx='"+row.idx+"' data-bbs_id='"+row.bbs_id+"'>"+data+"</span>";
+                }
+            },
+            {
+                targets : 2,
+                data : "reg_nm",
+                searchable : false,
+                orderable : false,
+                "class" : "text-align-center"
+            }
+	
+			,
+            {
+                targets : 3,
+                data : "read_cnt",
+                searchable : false,
+                orderable : false,
+                "class" : "text-align-center"
+            },
+            {
+                targets : 4,
+                data : "reg_dte",
+                searchable : false,
+                orderable : false,
+                "class" : "text-align-center"
+            }
+		
+        ],
+        order : [[0, 'desc']],
+        serverSide: true,
+        ajax : {
+            url: "/bbs/notice/notice_list_ajax.asp",
+                data: function ( d ) {
+                    return $.extend( {}, d, {
+                        "displayLength": "10",
+                        "bbs_id" : "faq"
+                    });
+                }
+        },
+        "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
+            "t"+
+            "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+        "autoWidth" : true,
+        "preDrawCallback" : function() {
+            // Initialize the responsive datatables helper once.
+            if (!responsiveHelper_dt_basic) {
+                responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#dt_basic'), breakpointDefinition);
+            }
+        },
+        "rowCallback" : function(nRow) {
+            responsiveHelper_dt_basic.createExpandIcon(nRow);
+        },
+        "drawCallback" : function(oSettings) {
+            responsiveHelper_dt_basic.respond();
+        },
+		"responsive": {
+            details: false
+        }
+    });
+
+    
+
+    $(document).on("click",".view_btn",function(){
+        var idx = $(this).data("idx");
+        var bbs_id = $(this).data("bbs_id");
+        $.ajax({
+            type: "POST",
+            url: "/bbs/notice/view_ajax.asp",
+            data: {idx:idx,bbs_id:bbs_id,type:"view"},
+            dataType:"json",
+            success: function (data) {
+                if (data.state == "success"){
+                    $("#title_view").empty();
+                    $("#title_view").append(data.title);
+                    $("#reg_nm_view").empty();
+                    $("#reg_nm_view").append(data.reg_nm);
+                    $("#reg_dte_view").empty();
+                    $("#reg_dte_view").append(data.reg_dte);
+                    $("#read_cnt_view").empty();
+                    $("#read_cnt_view").append(data.read_cnt);
+                    $("#cntt_view").empty();
+                    $("#cntt_view").append(data.cntt);
+                    $("#cntt_view").find("img").each(function(i,e){
+						
+						$(e).css("max-width","100%");
+						
+                    });
+                    $("#view_modal").modal("show");
+                }else{
+                    alert(data.msg);
+                }
+            },
+            error: function(){
+                alert("공지사항 내용을 불러오는중 오류가 발생했습니다. 관리자에게 문의하세요.");
+            }
+        });
+    });
+})
+</script>
+
+</head>
+<style>
+table#dt_basic{
+    font-size: 17px;
+}
+th{
+	font-size:16px !important
+}
+table#dt_basic td:nth-child(5){
+	width:126px !important;
+}
+.btn_regist{    
+	transform: scale(1.5);
+}
+table.table.table-bordered{
+	font-size:15px !important;
+}
+</style>
+
+<body>
+    <div id="wrap">
+        <!--Header-->
+        <div id="header_wrap">
+            <header id="header">	
+	<div id="headerin" class="cf">
+		<div class="logo f_l">
+			<a href="../../index.html"><img src="../../images/logo.png"></a>
+		</div>
+    	<nav class="gnb f_r">
+        	<ul>
+            	<li class="d1">
+                	<a href="#" class="m">회사소개</a>
+                    <div class="sub" style="left:14px">
+                    	<ul>
+                        	<li><a href="../company/intro.html">회사소개</a></li>
+                            <li><a href="../company/location.html">오시는 길</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+                <li class="d1">
+                	<a href="../product/venusta110c.html?bbs_id=venusta" class="m">제품</a>
+                    <div class="sub" style="left:-44px">
+                    	<ul>
+                        	<li><a href="../product/venusta110c.html?bbs_id=venusta">베누스타</a></li>
+                            <li><a href="../product/teatime1d73.html?bbs_id=ttime">티타임</a></li>
+                            <li><a href="../product/icemakerf4b2.html?bbs_id=icemaker">아이스메이커</a></li>
+                            <li><a href="../product/coffeebean9332.html?bbs_id=coffee">원두커피</a></li>
+                            <li><a href="../product/productfeatures.html">제품특장점</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+                <li class="d1">
+                	<a href="#" class="m">고객지원</a>
+                    <div class="sub" style="left:-23px;">
+                    	<ul>
+                        	<li><a href="videomanual6a1f.html?bbs_id=video">영상메뉴얼</a></li>
+                            <li><a href="userguidea34b.html?bbs_id=menual">제품사용설명서</a></li>
+                            <li><a href="faqc321.html?bbs_id=faq">문제해결</a></li>
+                            <li><a href="serviceapplication.html">서비스신청</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+                <li class="d1">
+                	<a href="#" class="m">커뮤니티</a>
+                    <div class="sub" style="left:18px;">
+                    	<ul>
+                        	<li><a href="../community/noticef00e.html?bbs_id=notice">공지사항</a></li>
+                            <li><a href="../community/qna6555.html?bbs_id=qna">일반문의</a></li>
+                            <li><a href="../community/information3190.html?bbs_id=coffeeinfo">커피정보</a></li>
+                            <li><a href="../community/review03b0.html?bbs_id=review">고객리뷰</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+            </ul>
+        </nav>
+    </div>
+    <div class="gnbBg"></div>
+</header>
+
+<script>
+	// .gnb에 마우스를 올렸을 때
+	// => .gnb의 높이값이 310으로 움직임.(기본높이값40+서브높이값270)
+	//    .gnbBg가 슬라이드다운되면서 보여지기
+	// .gnb에 마우스를 내렸을 때
+	// => .gnb의 높이값이 40으로 움직임.
+	//    .gnbBg가 슬라이드업되면서 사라지기
+	$(".gnb").mouseover(function(){
+		$(".gnb").stop().animate({height:310},10);
+		$(".gnbBg").stop().slideDown(10);
+	}).mouseout(function(){
+		$(".gnb").stop().animate({height:40},10);
+		$(".gnbBg").stop().slideUp(10);
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <!--//Header -->
+		<!--sub title banner-->
+		<div class="sub_tite_bn">
+			<img src="../../images/sub/sub_title/3_4.sub_title_problemsolving.jpg">	
+		</div>
+		<!--//sub title banner-->
+        <!--Content-->
+        <div id="content_wrap">
+			<div style="width:100%;">
+			
+<div class="widget-body">
+    
+
+<table id="dt_basic" class="table table-striped table-bordered table-hover" width="100%">
+	
+    <thead>
+        <tr>
+            <th data-class="expand" class="text-align-center" width="50px">NO</th>
+            <th width="*">제목</th>
+            <th class="text-align-center" width="100px">작성자</th>
+            <th data-hide="phone,tablet" class="text-align-center" width="50px">조회수</th>
+            <th data-hide="phone,tablet" class="text-align-center" width="80px">등록일</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+	
+
+</table>
+
+	<div class="modal fade" id="view_modal" tabindex="-1" role="dialog">
+		
+		<div class="modal-dialog" style="width:1000px;">
+		
+			<div class="modal-content">
+				<div class="modal-header">
+			    	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			        <h4 class="modal-title" id="title_view">
+			        </h4>
+			    </div>
+
+			    <div class="modal-body">
+			        <form class="smart-form">
+					
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<td width="100px">작성자</td>
+									<td id="reg_nm_view"></td>
+								</tr>
+								<tr>
+									<td width="100px">등록일</td>
+									<td id="reg_dte_view"></td>
+								</tr>
+								<tr>
+									<td width="100px">조회수</td>
+									<td id="read_cnt_view"></td>
+								</tr>
+								<tr>
+									<td colspan="2" align="center">내용</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<label class="textarea" id="cntt_view">
+										</label>
+									</td>
+								</tr>
+							</tbody>
+
+			            </table>
+					
+			        
+			        </form>
+			    </div>
+
+			    <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+			    </div>
+
+			</div>
+	    </div>
+	</div>
+
+    
+    </div>
+    
+			</div>
+			<!--table border="0" cellpadding="0" cellspacing="0" class="table" style="width:100%">
+			  <colgroup>
+				  <col width="7%"/>
+				  <col width="53%"/>
+				  <col width="10%"/>
+				  <col width="10%"/>
+				  <col width="8%"/>
+			  </colgroup>
+			   <thead>
+				   <tr>
+					   <th>NO.</th>
+					   <th>제목</th>
+					   <th>작성자</th>
+					   <th>날짜</th>
+					   <th>답변</th>
+				   </tr>
+			   </thead>
+			   <tbody>					
+					<tr>
+						<td>1</td>
+						<td>제목이 들어가는 공간입니다.</td>
+						<td>관리자</td>
+						<td>2019-6-15</td>
+						<td><span class="yes">Y</span></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>제목이 들어가는 공간입니다.</td>
+						<td>관리자</td>
+						<td>2019-6-15</td>
+						<td><span class="no">N</span></td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>제목이 들어가는 공간입니다.</td>
+						<td>관리자</td>
+						<td>2019-6-15</td>
+						<td><span class="no">N</span></td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>제목이 들어가는 공간입니다.</td>
+						<td>관리자</td>
+						<td>2019-6-15</td>
+						<td><span class="no">N</span></td>
+					</tr>		
+				</tbody>    
+			</table>
+			<button class="btn_write" type="button">글쓰기</button>
+			<div style="clear:both;"></div>
+			<div class="serch">
+				<p class="select">
+					<select name="search_type" id="search_type">
+						<option value="0">분류</option>
+						<option value="1">제목</option>
+						<option value="2">내용</option>
+						<option value="3">제목+내용</option>									
+					</select>
+				</p>
+				<p class="input">
+					<input type="text" id="search_txt" name="search_txt" placeholder="내용을 입력하세요">
+				</p>
+				<p class="btn_serch">
+					<button type="button" id="btn_search">검색</button>
+				</p>
+			</div>
+			
+			<div class="paging" id="paging_nav">
+				<ul class="cf">
+					<li><</li>
+					<li class="current">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>></li>
+				</ul>				
+			</div>-->
+        </div>
+        <!--//Content-->
+
+        <!--Footer-->
+        <div id="footer_wrap">
+            <div class="footer">
+
+	<div class="logo">
+		<a href="../../index.html">
+		    
+		</a>
+	</div>
+	<p class="privacy_policy">
+		<a href="../../member/privacy_policy.html">개인정보취급방침</a>
+	</p>
+	<p>베누스타커피 | 대표 : 박준영 | 080-055-2200 | 인천광역시 남동구 호구포로 50</p>
+	<p>서울(경기)/대전(충청)/광주(전라)/부산(경상)/제주도</p>
+	<p>전국 커피머신 렌탈/판매 및 원두구입 문의</p>
+	<p class="copy">Copyright© 2019 베누스타커피. All right reserved.</p>
+</div>
+        </div>
+        <!--//Footer-->
+    </div>
+</body>
+
+<!-- Mirrored from venusta.softp.kr/sub/cs/faq.asp?bbs_id=faq by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Oct 2020 23:22:28 GMT -->
+</html>

@@ -1,0 +1,357 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+
+<!-- Mirrored from venusta.softp.kr/sub/product/productfeatures.asp by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Oct 2020 23:21:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+	<title>베누스타</title>
+	<!--css-->
+	<link rel="stylesheet" type="text/css" href="../../css/default.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/include.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/sub.css">	
+	<link rel="stylesheet" type="text/css" href="../../css/NotoSansKR.css">
+	<!--js-->
+	<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/quick.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+		//Default Action
+		$(".tab_content").hide(); //Hide all content
+		$("ul.tabs li:first").addClass("active").show(); //Activate first tab
+		$(".tab_content:first").show(); //Show first tab content
+		
+		//On Click Event
+		$("ul.tabs li").click(function() {
+			$("ul.tabs li").removeClass("active"); //Remove any "active" class
+			$(this).addClass("active"); //Add "active" class to selected tab
+			$(".tab_content").hide(); //Hide all tab content
+			var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+			$(activeTab).fadeIn(); //Fade in the active content
+			return false;
+		});
+		});
+  </script>
+</head>
+
+
+<body>
+    <div id="wrap">
+        <!--Header-->
+        <div id="header_wrap">
+            <header id="header">	
+	<div id="headerin" class="cf">
+		<div class="logo f_l">
+			<a href="../../index.html"><img src="../../images/logo.png"></a>
+		</div>
+    	<nav class="gnb f_r">
+        	<ul>
+            	<li class="d1">
+                	<a href="#" class="m">회사소개</a>
+                    <div class="sub" style="left:14px">
+                    	<ul>
+                        	<li><a href="../company/intro.html">회사소개</a></li>
+                            <li><a href="../company/location.html">오시는 길</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+                <li class="d1">
+                	<a href="venusta110c.html?bbs_id=venusta" class="m">제품</a>
+                    <div class="sub" style="left:-44px">
+                    	<ul>
+                        	<li><a href="venusta110c.html?bbs_id=venusta">베누스타</a></li>
+                            <li><a href="teatime1d73.html?bbs_id=ttime">티타임</a></li>
+                            <li><a href="icemakerf4b2.html?bbs_id=icemaker">아이스메이커</a></li>
+                            <li><a href="coffeebean9332.html?bbs_id=coffee">원두커피</a></li>
+                            <li><a href="productfeatures.html">제품특장점</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+                <li class="d1">
+                	<a href="#" class="m">고객지원</a>
+                    <div class="sub" style="left:-23px;">
+                    	<ul>
+                        	<li><a href="../cs/videomanual6a1f.html?bbs_id=video">영상메뉴얼</a></li>
+                            <li><a href="../cs/userguidea34b.html?bbs_id=menual">제품사용설명서</a></li>
+                            <li><a href="../cs/faqc321.html?bbs_id=faq">문제해결</a></li>
+                            <li><a href="../cs/serviceapplication.html">서비스신청</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+                <li class="d1">
+                	<a href="#" class="m">커뮤니티</a>
+                    <div class="sub" style="left:18px;">
+                    	<ul>
+                        	<li><a href="../community/noticef00e.html?bbs_id=notice">공지사항</a></li>
+                            <li><a href="../community/qna6555.html?bbs_id=qna">일반문의</a></li>
+                            <li><a href="../community/information3190.html?bbs_id=coffeeinfo">커피정보</a></li>
+                            <li><a href="../community/review03b0.html?bbs_id=review">고객리뷰</a></li>
+                        </ul>
+                    </div>
+                </li> <!--.d1-->
+            </ul>
+        </nav>
+    </div>
+    <div class="gnbBg"></div>
+</header>
+
+<script>
+	// .gnb에 마우스를 올렸을 때
+	// => .gnb의 높이값이 310으로 움직임.(기본높이값40+서브높이값270)
+	//    .gnbBg가 슬라이드다운되면서 보여지기
+	// .gnb에 마우스를 내렸을 때
+	// => .gnb의 높이값이 40으로 움직임.
+	//    .gnbBg가 슬라이드업되면서 사라지기
+	$(".gnb").mouseover(function(){
+		$(".gnb").stop().animate({height:310},10);
+		$(".gnbBg").stop().slideDown(10);
+	}).mouseout(function(){
+		$(".gnb").stop().animate({height:40},10);
+		$(".gnbBg").stop().slideUp(10);
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <!--//Header -->
+		<!--sub title banner-->
+		<div class="sub_tite_bn">
+			<img src="../../images/sub/sub_title/2-5.sub_title_prductfeatures.jpg">	
+		</div>
+		<!--//sub title banner-->
+        <!--Content-->
+        <div id="content_wrap">
+			<div class="container">
+			<ul class="tabs cf">
+				<li><a href="#tab1">Venusta</a></li>
+				<li><a href="#tab2">Tea time</a></li>
+				<li><a href="#tab3">Cold ice dispanser</a></li>
+				<div style="clear:both;"></div>				
+			</ul>
+			
+			<div class="tab_container">
+				<div id="tab1" class="tab_content">
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_venusta.png"></div>
+						<div class="pro_tt">에스프레소 추출의 핵심 기능 고성능 브로맥</div>
+						<div class="pro_tx">
+						스핀들 구동 방식의 유럽형 최신 브로맥을 사용 원두량을
+						5g~15g까지<br> 자동 조절하여 추출해줌으로 6.5oz 컵부터
+						최대 15oz 컵 사용이 가능하며,<br> 풍부한 크레마 생성과
+						미세 스크린필터를 적용하여 미분이 적고<br> 원두 커피 최상의
+						맛을 제공합니다.<br> 또한, 상부 피스톤 원터치 분리, 탈 부착이
+						용이하도록 설계하여<br> 브로맥의 관리와
+						청소가 용이하며 위생적입니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_venusta.png"></div>
+						<div class="pro_tt">원두입자를 균일하게 고성능 그라인더</div>
+						<div class="pro_tx">
+						고성능 기어드(감속)모터와 대형 나이프를 <br>적용하여 원두 분쇄력과 내구성이 우수하며, 스러스트 베어리을 <br>채택하여 균일한 원두량과 분쇄 입자를 만들어 냅니다.<br> 또한 고정식 그라인더와 달리 원두입자를 소비자의<br> 기호에 맞춰 1~7단계까지 간편하게 조절할 수 있어<br> 최적의 에스프레소를 추출합니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_venusta.png"></div>
+						<div class="pro_tt">순간가열식 고성능 히터블럭</div>
+						<div class="pro_tx">
+						국내 최초로 전문 에스프레소 머신에 사용되는 순간가열식 히팅방식의<br> 히터블럭을 사용하여 일정한 고압옵수 공급 및 연속추출이 가능하며,<br> 고압의 스팀을 만들어냅니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_venusta.png"></div>
+						<div class="pro_tt">전자동 마이콤 자가진단시스템</div>
+						<div class="pro_tx">
+						제품의 동장상태를 마이콤에 의해 스스로 점검하여<br> 각종 적재량 감지 및 브로맥 상태, 슬러지 배출 등의<br> 알림 등으로 제품 관리가 용이하며, 자가진단시스템에 의해<br>제품 에러표시 및 조치방법을<br> 단계별로 표시하여 줍니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_venusta.png"></div>
+						<div class="pro_tt">대용량 제품 설계</div>
+						<div class="pro_tx">
+						에스프레소 머신의 핵심기술인 브로맥, 그라인더, 고압밸브 등<br> 탁월한 내구성으로 사용량이 많은 장소에서도 뛰어난 성능을 발휘하며,<br> 대용량 제품 설계로 원두적재량, 물통용량, 슬러지 배출량, 잔수수용량 등 <br>동급 원두머신 대비하여 최대용량을 자랑하며,<br>자동급수 시스템으로 편의성이 뛰어납니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_venusta.png"></div>
+						<div class="pro_tt">원두커 피 맛을 최상으로 by-pass 기능</div>
+						<div class="pro_tx">
+						에스프레소 추출 후 온수를 공급하여 다양한 메뉴를 만들어내는<br> by-pass 기능을 통해 어떠한 원두콩을 사용하더라도 <br>원두커피 최고의 맛을 찾아내며, 각 메뉴에 따른 셋팅이 간편합니다.
+						</div>
+					</div>
+				</div>
+				<div id="tab2" class="tab_content">
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_teatime.png"></div>
+						<div class="pro_tt">물 온도를 내 마음대로 최고 98℃까지</div>
+						<div class="pro_tx">
+						온수탱크 내부에 전자식 물 온도조절장치를 장착하여<br> 항상 뜨거운 물 온도를 유지하여 주며, 최저 70℃부터<br> 미니자판기의 최고 물온도인 98℃까지 1℃간격으로 자유롭게 조절할 수 있어 <br>여름철 전기절감 효과와 최적의 커피 맛을 제공해 드립니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_teatime.png"></div>
+						<div class="pro_tt">대용량으로 번거로움을 싹!</div>
+						<div class="pro_tx">
+						기존 제품들과 차별화하여 제품 Size는 작게 하고,<br> 원료적재량 및 컵 수용량등 적재량은 대형화하여<br> 자주 보충해주는 번거로움을 최소화함으로<br> 제품 사용 및 관리가 용이합니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_teatime.png"></div>
+						<div class="pro_tt">미니자판기 최조 Check Valve 장착</div>
+						<div class="pro_tx">
+						미니자판기 최초 Check Valve (역류방지장치)를 장착하여<br>기존자판기의 최대 문제점인 보조탱크내 미지근한 물온도로<br>발생하는 각종 부작용을 억제하여 주며, 가열탱크내<br> 물온도를 5℃이상 상승 시켜줌으로 고온의 물온도를 유지하여 줍니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_teatime.png"></div>
+						<div class="pro_tt">누구나 손쉽게! 너무나 간편하게!</div>
+						<div class="pro_tx">
+						메뉴선택이 용이하도록 버튼배열을 간소화하였고 설정값 변경시<br> 버튼누름 횟수를 줄여 간단히 조절되며 LED인디케이터<br> 기능으로 컵 없음, 물 없음, 판매금액 표시 등<br> 제품상태를 한눈에 확인할 수 있어 누구나 손쉬운 사용이 가능합니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_teatime.png"></div>
+						<div class="pro_tt">국제규격 설계와 편리성까지</div>
+						<div class="pro_tx">
+						국제규격의 고밀도 특수재질 원료통 채용으로 내구성이 뛰어나며<br> 원료의 적체현상 방지장치와 인체형 손잡이를 부착하여<br>사용자의 편리성 보다 높였습니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_teatime.png"></div>
+						<div class="pro_tt">원료통 결합을 한번에~</div>
+						<div class="pro_tx">
+						원료를 보충한 후 원료통 장착시 제품에 맞추어 결합하는<br>기존방식의 불편함을 없애고 스플라인 기어방식을 적용하여<br>한번에 결합됨으로 원료통 장착이 매우 간편합니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_teatime.png"></div>
+						<div class="pro_tt">내 컵 기능</div>
+						<div class="pro_tx">
+						종이컵 사용은 물론 내 컵 기능으로 사용자의 용도에 맞춰<br> 머그컵을 사용할 수 있어 종이컵 절약과 환경보호를<br> 동시에 실현할 수 있습니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_teatime.png"></div>
+						<div class="pro_tt">티타임만의 Life Style 커피~</div>
+						<div class="pro_tx">
+						국내최초 개발하여 특허획득한 티타임 맛조절기능은 <br>최적의 배합률(0.1sec 단위)로 한 잔! 한 잔! 드실때마다<br> 취향대로 조절이 가능하여 나만의 커피! 맛있는 커피!를<br> 즐길 수 있습니다. <br>“티타임이 드리는 아주 특별한 커피서비스를 직접 확인해보십시오”
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_teatime.png"></div>
+						<div class="pro_tt">정확히 관리한다</div>
+						<div class="pro_tx">
+						각각의 메뉴별 사용잔수를 집계하여 최대 999,999잔까지<br> 표시하여 줌으로 정확한 제품관리가 가능하며, <br>매출액 산출이 가능하여 자판기 운영사업에도<br>전혀 손색이 없습니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_teatime.png"></div>
+						<div class="pro_tt">완벽한 이중 믹싱시스템에 풍부한 거품까지</div>
+						<div class="pro_tx">
+						믹싱과정에서 발생되는 미세 누수현상으로 인한 기능손상과 <br>원료막힘증상 등의 문제점을 유럽형 오일실장착으로 누수를<br> 완전 차단하였으며, 원료를 완벽하게 혼합하여 주는 <br>믹싱시스텝으로 막힘증상 해소는<br> 물론 풍부함 거품생성으로 한층 더 깊고<br> 부드러운 커피맛을 느끼실 수 있습니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_teatime.png"></div>
+						<div class="pro_tt">다양한 부가기능</div>
+						<div class="pro_tx">
+						1. 원료 굳음방지용 히터장착<br>
+						2. 온수탱크의 과열을 차단하는 과승방지센서 장착<br>
+						3. 메뉴별 개별 맛조절 및 가격조절기능<br>
+						4. 위생적인 세척기능<br>
+						5. 생수통 <br>
+						6. 원터치방식의 편리한 팬커버/팬청소<br>
+						</div>
+					</div>
+				</div>
+				<div id="tab3" class="tab_content">	
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_dispenser.png"></div>
+						<div class="pro_tt">냉각성능이 탁월한 쾌속냉각</div>
+						<div class="pro_tx">
+						발열부와 흡열부의 균형있는 제품 설계로 냉각효율을<br>극대화한 탁월한 냉각성능으로, 주위 온도 30℃~20℃ 음료를<br>45분 이내에 10℃ 이하로 쾌속냉각시켜 줍니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_dispenser.png"></div>
+						<div class="pro_tt">저온도 유지로 신선함이 그대로</div>
+						<div class="pro_tx">
+						국내 최초 플레이트형 냉각방식을 채택하여 냉각면적을 보다<br> 넒힘으로 빠른 냉각은 물론 음료량이 적게 남아 있어도<br> 균일한 저온도 유지로 언제나 신선한 음료를 즐길 수 있습니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_dispenser.png"></div>
+						<div class="pro_tt">공기저항을 최소화한 저소음 설계</div>
+						<div class="pro_tx">
+						냉각장치 가동시 발생되는 발열을 Fin Tube 콘덴서를<br>채용하여 최소화하였으며, 자유로운 공기순환 설계로<br> 열방출 효과가 뛰어나 제품 동작 소음이 적습니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_dispenser.png"></div>
+						<div class="pro_tt">편리한 사용과 간편한 제품관리</div>
+						<div class="pro_tx">
+						대용량 8L 음료 저장으로 사용자의 편리성이 높고<br>, 각종 관리 부품이 원터치 방식으로 탈/부착을<br> 손쉽게 하여 청소 및 제품 관리가 간편합니다.
+						</div>
+					</div>
+					<div class="pro_s">
+						<div class="pro_ico"><img src="../../images/m/sub/ico_dispenser.png"></div>
+						<div class="pro_tt">높은 안정성</div>
+						<div class="pro_tx">
+						음료저장통은 100% 무독성 P.C 재질을 상요하여<br> 인체에 무해하며, 외부 충격에 강하고 써머스타트 방식의<br> 온도 제어로 기존의 마이콤 방식에 비해 안정적이고<br> 영구적인 성능을 발휘합니다.
+						</div>
+					</div>
+				</div>       
+			</div>
+		</div>
+			
+        </div>
+        <!--//Content-->
+        <!--Footer-->
+        <div id="footer_wrap">
+            <div class="footer">
+
+	<div class="logo">
+		<a href="../../index.html">
+		    
+		</a>
+	</div>
+	<p class="privacy_policy">
+		<a href="../../member/privacy_policy.html">개인정보취급방침</a>
+	</p>
+	<p>베누스타커피 | 대표 : 박준영 | 080-055-2200 | 인천광역시 남동구 호구포로 50</p>
+	<p>서울(경기)/대전(충청)/광주(전라)/부산(경상)/제주도</p>
+	<p>전국 커피머신 렌탈/판매 및 원두구입 문의</p>
+	<p class="copy">Copyright© 2019 베누스타커피. All right reserved.</p>
+</div>
+        </div>
+        <!--//Footer-->
+    </div>
+</body>
+
+<!-- Mirrored from venusta.softp.kr/sub/product/productfeatures.asp by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Oct 2020 23:21:42 GMT -->
+</html>

@@ -1,0 +1,16 @@
+/*member/privacy_policy.asp영역*/
+#header_wrap{
+	border-bottom:1px solid #ddd;
+}
+
+.pp_tt {
+    background: #f1e6d7;
+    line-height: 172px;
+    font-size: 28px;
+    text-align: center;
+    font-family: 'noto-b';
+    color: #5f5952;
+}
+.pp_tx{
+	padding-top:50px;
+}
