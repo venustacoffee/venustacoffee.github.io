@@ -110,16 +110,16 @@ $(document).ready(function(){
         ],
         order : [[0, 'desc']],
         serverSide: true,
-        ajax : {
-            url: "",
+        //ajax : {
+            // url: "",
             // "/bbs/data/data_list_ajax.asp",
-                data: function ( d ) {
-                    return $.extend( {}, d, {
-                        "displayLength": "10",
-                        "bbs_id" : "menual"
-                    });
-                }
-        },
+        //        data: function ( d ) {
+        //            return $.extend( {}, d, {
+        //                "displayLength": "10",
+        //                "bbs_id" : "menual"
+        //            });
+        //        }
+        //},
         "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
             "t"+
             "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
