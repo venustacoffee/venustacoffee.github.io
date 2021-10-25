@@ -111,7 +111,8 @@ $(document).ready(function(){
         order : [[0, 'desc']],
         serverSide: true,
         ajax : {
-            url: "/bbs/data/data_list_ajax.asp",
+            url: "",
+            // "/bbs/data/data_list_ajax.asp",
                 data: function ( d ) {
                     return $.extend( {}, d, {
                         "displayLength": "10",
@@ -147,7 +148,8 @@ $(document).ready(function(){
         var bbs_id = $(this).data("bbs_id");
         $.ajax({
             type: "POST",
-            url: "/bbs/data/view_ajax.asp",
+            url: "",
+            // url: "/bbs/data/view_ajax.asp",
             data: {idx:idx,bbs_id:bbs_id,type:"view"},
             dataType:"json",
             success: function (data) {
