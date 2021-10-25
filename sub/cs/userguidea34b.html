@@ -122,22 +122,22 @@ $(document).ready(function(){
         "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
             "t"+
             "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
-        "autoWidth" : true,
-        "preDrawCallback" : function() {
-            // Initialize the responsive datatables helper once.
-            if (!responsiveHelper_dt_basic) {
-                // responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#dt_basic'), breakpointDefinition);
-            }
-        },
-        "rowCallback" : function(nRow) {
-            // responsiveHelper_dt_basic.createExpandIcon(nRow);
-        },
-        "drawCallback" : function(oSettings) {
-            // responsiveHelper_dt_basic.respond();
-        },
-		"responsive": {
-            // details: false
-        }
+        // "autoWidth" : true,
+        // "preDrawCallback" : function() {
+        //     // Initialize the responsive datatables helper once.
+        //     if (!responsiveHelper_dt_basic) {
+        //         // responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#dt_basic'), breakpointDefinition);
+        //     }
+        // },
+        // "rowCallback" : function(nRow) {
+        //     // responsiveHelper_dt_basic.createExpandIcon(nRow);
+        // },
+        // "drawCallback" : function(oSettings) {
+        //     // responsiveHelper_dt_basic.respond();
+        // },
+		// "responsive": {
+        //     // details: false
+        // }
     });
 
     
@@ -175,11 +175,11 @@ $(document).ready(function(){
                     });
                     $("#view_modal").modal("show");
                 }else{
-                    alert(data.msg);
+                    // alert(data.msg);
                 }
             },
             error: function(){
-                alert("내용을 불러오는중 오류가 발생했습니다. 관리자에게 문의하세요.");
+                // alert("내용을 불러오는중 오류가 발생했습니다. 관리자에게 문의하세요.");
             }
         });
     });
