@@ -50,141 +50,139 @@ $(document).ready(function(){
         phone : 480
     };
 
-    $('#dt_basic').dataTable({
-        //"paging":   false,
-        //"ordering": false,
-        //"info":     false,
-        "searching": true,
-        "language" : {
-            "zeroRecords" : "검색결과가 없습니다.",
-            "info" : "_START_ ~ _END_ [전체 _TOTAL_ 건]",
-            "infoEmpty" : "0 ~ 0 [전체 0 건]",
-            "infoFiltered" : "",
-            "paginate" : {
-                "previous" : "<",
-                "next" : ">"
-            }
-        },
-        displayLength : 10,
-        columnDefs : [
-            {
-                targets : 0,
-                data : "fidx",
-                searchable : false,
-                orderable : false,
-                "class" : "text-align-center"
-            },
-            {
-                targets : 1,
-                data : "title",
-                searchable : false,
-                orderable : false,
-                render : function(data,type,row){
-                    return "<span class='view_btn title_ellipsis' data-idx='"+row.idx+"' data-bbs_id='"+row.bbs_id+"'>"+data+"</span>";
-                }
-            },
-            {
-                targets : 2,
-                data : "reg_nm",
-                searchable : false,
-                orderable : false,
-                "class" : "text-align-center"
-            }
+    // $('#dt_basic').dataTable({
+    //     //"paging":   false,
+    //     //"ordering": false,
+    //     //"info":     false,
+    //     "searching": true,
+    //     "language" : {
+    //         "zeroRecords" : "검색결과가 없습니다.",
+    //         "info" : "_START_ ~ _END_ [전체 _TOTAL_ 건]",
+    //         "infoEmpty" : "0 ~ 0 [전체 0 건]",
+    //         "infoFiltered" : "",
+    //         "paginate" : {
+    //             "previous" : "<",
+    //             "next" : ">"
+    //         }
+    //     },
+    //     displayLength : 10,
+    //     columnDefs : [
+    //         {
+    //             targets : 0,
+    //             data : "fidx",
+    //             searchable : false,
+    //             orderable : false,
+    //             "class" : "text-align-center"
+    //         },
+    //         {
+    //             targets : 1,
+    //             data : "title",
+    //             searchable : false,
+    //             orderable : false,
+    //             render : function(data,type,row){
+    //                 return "<span class='view_btn title_ellipsis' data-idx='"+row.idx+"' data-bbs_id='"+row.bbs_id+"'>"+data+"</span>";
+    //             }
+    //         },
+    //         {
+    //             targets : 2,
+    //             data : "reg_nm",
+    //             searchable : false,
+    //             orderable : false,
+    //             "class" : "text-align-center"
+    //         }
 	
-			,
-            {
-                targets : 3,
-                data : "read_cnt",
-                searchable : false,
-                orderable : false,
-                "class" : "text-align-center"
-            },
-            {
-                targets : 4,
-                data : "reg_dte",
-                searchable : false,
-                orderable : false,
-                "class" : "text-align-center"
-            }
+	// 		,
+    //         {
+    //             targets : 3,
+    //             data : "read_cnt",
+    //             searchable : false,
+    //             orderable : false,
+    //             "class" : "text-align-center"
+    //         },
+    //         {
+    //             targets : 4,
+    //             data : "reg_dte",
+    //             searchable : false,
+    //             orderable : false,
+    //             "class" : "text-align-center"
+    //         }
 		
-        ],
-        order : [[0, 'desc']],
-        serverSide: true,
-        //ajax : {
-            // url: "",
-            // "/bbs/data/data_list_ajax.asp",
-        //        data: function ( d ) {
-        //            return $.extend( {}, d, {
-        //                "displayLength": "10",
-        //                "bbs_id" : "menual"
-        //            });
-        //        }
-        //},
-        "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
-            "t"+
-            "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
-        "autoWidth" : true,
-        "preDrawCallback" : function() {
-            // Initialize the responsive datatables helper once.
-            if (!responsiveHelper_dt_basic) {
-                responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#dt_basic'), breakpointDefinition);
-            }
-        },
-        "rowCallback" : function(nRow) {
-            responsiveHelper_dt_basic.createExpandIcon(nRow);
-        },
-        "drawCallback" : function(oSettings) {
-            responsiveHelper_dt_basic.respond();
-        },
-		"responsive": {
-            details: false
-        }
-    });
+    //     ],
+    //     order : [[0, 'desc']],
+    //     serverSide: true,
+    //     ajax : {
+    //         url: "/bbs/data/data_list_ajax.asp",
+    //             data: function ( d ) {
+    //                 return $.extend( {}, d, {
+    //                     "displayLength": "10",
+    //                     "bbs_id" : "menual"
+    //                 });
+    //             }
+    //     },
+    //     "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
+    //         "t"+
+    //         "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+    //     "autoWidth" : true,
+    //     "preDrawCallback" : function() {
+    //         // Initialize the responsive datatables helper once.
+    //         if (!responsiveHelper_dt_basic) {
+    //             responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#dt_basic'), breakpointDefinition);
+    //         }
+    //     },
+    //     "rowCallback" : function(nRow) {
+    //         responsiveHelper_dt_basic.createExpandIcon(nRow);
+    //     },
+    //     "drawCallback" : function(oSettings) {
+    //         responsiveHelper_dt_basic.respond();
+    //     },
+	// 	"responsive": {
+    //         details: false
+    //     }
+    // });
 
     
 
-    $(document).on("click",".view_btn",function(){
-        var idx = $(this).data("idx");
-        var bbs_id = $(this).data("bbs_id");
-        $.ajax({
-            type: "POST",
-            url: "",
-            // url: "/bbs/data/view_ajax.asp",
-            data: {idx:idx,bbs_id:bbs_id,type:"view"},
-            dataType:"json",
-            success: function (data) {
-                if (data.state == "success"){
-                    $("#title_view").empty();
-                    $("#title_view").append(data.title);
-                    $("#reg_nm_view").empty();
-                    $("#reg_nm_view").append(data.reg_nm);
-                    $("#reg_dte_view").empty();
-                    $("#reg_dte_view").append(data.reg_dte);
-                    $("#read_cnt_view").empty();
-                    $("#read_cnt_view").append(data.read_cnt);
-                    $("#data_view").empty();
-                    if(data.data_nm == ""){
-                        $("#data_view").append("등록된 파일이 없습니다.");
-                    }else{
-                        $("#data_view").append("<a href='/bbs/data/data_down.asp?data_nm="+data.data_nm+"'>"+data.data_nm+"</a>");
-                    }
-                    $("#cntt_view").empty();
-                    $("#cntt_view").append(data.cntt);
-                    $("#cntt_view").find("img").each(function(i,e){
+    // $(document).on("click",".view_btn",function(){
+    //     var idx = $(this).data("idx");
+    //     var bbs_id = $(this).data("bbs_id");
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "/bbs/data/view_ajax.asp",
+    //         data: {idx:idx,bbs_id:bbs_id,type:"view"},
+    //         dataType:"json",
+    //         success: function (data) {
+    //             if (data.state == "success"){
+    //                 $("#title_view").empty();
+    //                 $("#title_view").append(data.title);
+    //                 $("#reg_nm_view").empty();
+    //                 $("#reg_nm_view").append(data.reg_nm);
+    //                 $("#reg_dte_view").empty();
+    //                 $("#reg_dte_view").append(data.reg_dte);
+    //                 $("#read_cnt_view").empty();
+    //                 $("#read_cnt_view").append(data.read_cnt);
+    //                 $("#data_view").empty();
+    //                 if(data.data_nm == ""){
+    //                     $("#data_view").append("등록된 파일이 없습니다.");
+    //                 }else{
+    //                     $("#data_view").append("<a href='/bbs/data/data_down.asp?data_nm="+data.data_nm+"'>"+data.data_nm+"</a>");
+    //                 }
+    //                 $("#cntt_view").empty();
+    //                 $("#cntt_view").append(data.cntt);
+    //                 $("#cntt_view").find("img").each(function(i,e){
 						
-						$(e).css("max-width","100%");
+	// 					$(e).css("max-width","100%");
 						
-                    });
-                    $("#view_modal").modal("show");
-                }else{
-                    alert(data.msg);
-                }
-            },
-            error: function(){
-                alert("내용을 불러오는중 오류가 발생했습니다. 관리자에게 문의하세요.");
-            }
-        });
-    });
+    //                 });
+    //                 $("#view_modal").modal("show");
+    //             }else{
+    //                 alert(data.msg);
+    //             }
+    //         },
+    //         error: function(){
+    //             alert("내용을 불러오는중 오류가 발생했습니다. 관리자에게 문의하세요.");
+    //         }
+    //     });
+    // });
 })
 </script>
 
