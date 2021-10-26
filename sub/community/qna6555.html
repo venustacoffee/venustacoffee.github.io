@@ -138,7 +138,8 @@ $(document).ready(function(){
         ajax : {
             url: "/bbs/qna/qna_list_ajax.asp",
                 data: function ( d ) {
-                    return $.extend( {}, d, {
+                    //return $.extend( {}, d, {
+					return $.extend({
                         "displayLength": "10",
                         "bbs_id" : "qna"
                     });

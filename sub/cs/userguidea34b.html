@@ -1,12 +1,10 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
-	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 	<title>베누스타</title>
@@ -111,34 +109,35 @@ $(document).ready(function(){
         ],
         order : [[0, 'desc']],
         serverSide: true,
-        // ajax : {
-        //     url: "/bbs/data/data_list_ajax.asp",
-        //         data: function ( d ) {
-        //             return $.extend( {}, d, {
-        //                 "displayLength": "10",
-        //                 "bbs_id" : "menual"
-        //             });
-        //         }
-        // },
+        ajax : {
+            url: "/bbs/data/data_list_ajax.asp",
+                data: function ( d ) {
+                    //return $.extend( {}, d, {
+					return $.extend({
+                        "displayLength": "10",
+                        "bbs_id" : "menual"
+                    });
+                }
+        },
         "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-12 hidden-xs'l>r>"+
             "t"+
             "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
-        // "autoWidth" : true,
-        // "preDrawCallback" : function() {
-        //     // Initialize the responsive datatables helper once.
-        //     if (!responsiveHelper_dt_basic) {
-        //         // responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#dt_basic'), breakpointDefinition);
-        //     }
-        // },
-        // "rowCallback" : function(nRow) {
-        //     // responsiveHelper_dt_basic.createExpandIcon(nRow);
-        // },
-        // "drawCallback" : function(oSettings) {
-        //     // responsiveHelper_dt_basic.respond();
-        // },
-		// "responsive": {
-        //     // details: false
-        // }
+        "autoWidth" : true,
+        "preDrawCallback" : function() {
+            // Initialize the responsive datatables helper once.
+            if (!responsiveHelper_dt_basic) {
+                responsiveHelper_dt_basic = new ResponsiveDatatablesHelper($('#dt_basic'), breakpointDefinition);
+            }
+        },
+        "rowCallback" : function(nRow) {
+            responsiveHelper_dt_basic.createExpandIcon(nRow);
+        },
+        "drawCallback" : function(oSettings) {
+            responsiveHelper_dt_basic.respond();
+        },
+		"responsive": {
+            details: false
+        }
     });
 
     
@@ -501,5 +500,6 @@ table.table.table-bordered{
         <!--//Footer-->
     </div>
 </body>
+
 
 </html>

@@ -1,10 +1,12 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 	<title>베누스타</title>
@@ -111,10 +113,9 @@ $(document).ready(function(){
         ajax : {
             url: "/bbs/notice/notice_list_ajax.asp",
                 data: function ( d ) {
-                    //return $.extend( {}, d, {
-					return $.extend({
+                    return $.extend( d, {
                         "displayLength": "10",
-                        "bbs_id" : "notice"
+                        "bbs_id" : "coffeeinfo"
                     });
                 }
         },
@@ -168,17 +169,55 @@ $(document).ready(function(){
                     });
                     $("#view_modal").modal("show");
                 }else{
-                    alert(data.msg);
+                    // alert(data.msg);
                 }
             },
             error: function(){
-                alert("공지사항 내용을 불러오는중 오류가 발생했습니다. 관리자에게 문의하세요.");
+                // alert("공지사항 내용을 불러오는중 오류가 발생했습니다. 관리자에게 문의하세요.");
             }
         });
     });
 })
 </script>
 
+	<script>
+	$(document).ready(function(){
+        var idx = "";
+		if (idx != "")
+		{
+			var bbs_id = "coffeeinfo";
+			$.ajax({
+				type: "POST",
+				url: "/bbs/notice/view_ajax.asp",
+				data: {idx:idx,bbs_id:bbs_id,type:"view"},
+				dataType:"json",
+				success: function (data) {
+					if (data.state == "success"){
+						$("#title_view").empty();
+						$("#title_view").append(data.title);
+						$("#reg_nm_view").empty();
+						$("#reg_nm_view").append(data.reg_nm);
+						$("#reg_dte_view").empty();
+						$("#reg_dte_view").append(data.reg_dte);
+						$("#read_cnt_view").empty();
+						$("#read_cnt_view").append(data.read_cnt);
+						$("#cntt_view").empty();
+						$("#cntt_view").append(data.cntt);
+						$("#cntt_view").find("img").each(function(i,e){
+							$(e).css("max-width","100%");
+						});
+						$("#view_modal").modal("show");
+					}else{
+						// alert(data.msg);
+					}
+				},
+				error: function(){
+					// alert("공지사항 내용을 불러오는중 오류가 발생했습니다. 관리자에게 문의하세요.");
+				}
+			});
+		}
+	})
+	</script>
 </head>
 <style>
 table#dt_basic{
@@ -298,7 +337,7 @@ table.table.table-bordered{
         <!--//Header -->
 		<!--sub title banner-->
 		<div class="sub_tite_bn">
-			<img style="width:100%;" src="../../images/sub/sub_title/4_1.sub_title_notice.jpg">	
+			<img style="width:100%;" src="../../images/sub/sub_title/4_3.sub_title_informationcoffee.jpg">	
 		</div>
 		<!--//sub title banner-->
         <!--Content-->
@@ -383,50 +422,32 @@ table.table.table-bordered{
     </div>
     
 			</div>
-			<!--table border="0" cellpadding="0" cellspacing="0" class="table" style="width:100%">
+			<!--div class="phrases">
+				<p class="phrases_tt">Venusta & Coffee</p>
+				<p style="color:#989898">베누스타와 함께하는 커피이야기, 흥미로운 커피이야기를 알려드립니다.</p>									
+			</div>
+			<table border="0" cellpadding="0" cellspacing="0" class="table inr_coffee" style="width:100%">
 			  <colgroup>
-				  <col width="7%"/>
-				  <col width="53%"/>
-				  <col width="10%"/>
-				  <col width="10%"/>
-			  </colgroup>
-			   <thead>
-				   <tr>
-					   <th>NO.</th>
-					   <th>제목</th>
-					   <th>작성자</th>
-					   <th>날짜</th>
-				   </tr>
-			   </thead>
-			   <tbody>					
+				  <col width="31%"/>
+				  <col width="65%"/>
+			  </colgroup>			  
+			  <tbody>					
 					<tr>
-						<td>1</td>
-						<td><a href="/sub/community/notice_detail.asp">제목이 들어가는 공간입니다.</a></td>
-						<td>관리자</td>
-						<td>2019-6-15</td>
+						<td class="inf_img"><img src="/images/sub/intro_img.jpg"></td>
+						<td class="inf_cont">
+							<div class="inf_tt"><a href="/sub/community/information_detail.asp">손으로 직접 만들어내는 DIY열풍을 이은 '홈 카페(Home cafe)'</a></div>
+							<div class="inf_tx f_r"><a href="/sub/community/information_detail.asp">
+								이제는 길거리 어디를 가도 흔히 볼수있는 Cafe
+								옛날 다방에서만 먹을 수 있었던 인스턴트 커피는
+								이제 어디서든 뜨거운 물과 컵만 있으면
+								언제든 마실 수 있는 하나의 '차'가 되었다.</a>
+							</div>
+						</td>
 					</tr>
-					<tr>
-						<td>2</td>
-						<td>제목이 들어가는 공간입니다.</td>
-						<td>관리자</td>
-						<td>2019-6-15</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>제목이 들어가는 공간입니다.</td>
-						<td>관리자</td>
-						<td>2019-6-15</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>제목이 들어가는 공간입니다.</td>
-						<td>관리자</td>
-						<td>2019-6-15</td>
-					</tr>		
+									
 				</tbody>    
 			</table>
-			<button class="btn_write" type="button">글쓰기</button>
-			<div style="clear:both;"></div>
+			
 			<div class="serch">
 				<p class="select">
 					<select name="search_type" id="search_type">
@@ -445,21 +466,25 @@ table.table.table-bordered{
 			</div>
 			
 			<div class="paging" id="paging_nav">
-				
-			</div>
+				<ul class="cf">
+					<li><</li>
+					<li class="current">1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>></li>
+				</ul>				
+			</div>-->
+			
         </div>
-		<div class="paging" id="paging_nav">
-			<ul class="cf">
-				<li><</li>
-				<li class="current">1</li>
-				<li>2</li>
-				<li>3</li>
-				<li>4</li>
-				<li>5</li>
-				<li>></li>
-			</ul>-->				
-		</div>
         <!--//Content-->
+
+        <!--Quick_banner-->
+        <div id="quick_banner">
+            <!--include virtual="/quick.asp"//-->
+		</div>
+        <!--//Quick_banner-->
 
         <!--Footer-->
         <div id="footer_wrap">

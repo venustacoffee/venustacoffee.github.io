@@ -113,7 +113,8 @@ $(document).ready(function(){
         ajax : {
             url: "/bbs/notice/notice_list_ajax.asp",
                 data: function ( d ) {
-                    return $.extend( {}, d, {
+                    //return $.extend( {}, d, {
+					return $.extend({
                         "displayLength": "10",
                         "bbs_id" : "faq"
                     });
