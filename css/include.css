@@ -11,10 +11,9 @@
 .gnb{
 	position:absolute; top:37px;
 	height:40px;
-	overflow:hidden;
-	/* 
-	right:-79px;
-	*/
+	overflow:hidden; 
+	right:0px;
+	
 	}
 .gnb .d1{
 	position:relative;
