@@ -33,7 +33,7 @@
 }
 /*product*/
 .main_bn_product, .main_cum{
-	width:1200px;
+	width:100%;
 	margin:0 auto;
 }
 .main_pd_list li{
