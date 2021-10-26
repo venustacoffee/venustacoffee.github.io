@@ -38,7 +38,9 @@ body {
     color: #a5a5a5;
 }
 
-img{border:0;}
+img{border:0;
+	width: 100%;
+	}
 
 a{text-decoration:none;}
 
