@@ -103,7 +103,7 @@
     border-top: 0;
     background: #e3e3e3;
 }
-}
+
 .ps_input input {
     background: white;
     border: none;
@@ -289,7 +289,7 @@ p.select select {
     font-size: 16px;
     margin: 0 15px;
 }
-}
+
 .btn_serch button{
 	width:120px;
 	line-height:37px;
