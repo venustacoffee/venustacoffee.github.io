@@ -18,7 +18,10 @@
 	}
 .gnb .d1{
 	position:relative;
-	float:left; padding-right:60px;}
+	float:left; 
+	padding-left: 60px;
+    padding-right: 20px;
+	}
 .gnb .d1 .m{
 	display:block; 
 	font-size:20px; color:#222;}
